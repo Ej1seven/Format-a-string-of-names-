@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>Format String of Names</title>
+  </head>
+  <body>
+    <div>
+      <div class="header">
+        <h1 class="title">
+          Format a string of names like 'Bart, Lisa & Maggie'.
+        </h1>
+      </div>
+      <div class="body-container">
+        <div class="problem-set">
+          <div class="section-title-container">
+            <div class="nav-bar">
+              <div class="tab active problem-tab">
+                <h4 class="section-title">Problem Set</h4>
+              </div>
+              <div class="tab solution-tab border-left bg-orange">
+                <h4 class="section-title">Solution</h4>
+              </div>
+              <div class="empty-section bg-orange"></div>
+            </div>
+            <div class="text-container">
+              <div class="problem-text">
+                <p>
+                  <br />
+                  Given: an array containing hashes of names
+                  <br />
+                  <br />
+                  Return: a string formatted as a list of names separated by
+                  commas except for the last two names, which should be
+                  separated by an ampersand.
+                  <br/>
+                  <h4>Example:</h4>
+                  <span class="indent">List([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ])</span>
+                  <br/><span class="indent"> //
+                    returns 'Bart, Lisa & Maggie'</span>
+                    <br/>
+                  <br />
+                  <span class="indent">list([ {name: 'Bart'}, {name: 'Lisa'} ])</span>
+                    <span class="indent"> // returns 'Bart &
+                      Lisa'</span>
+                      <br/>
+                  <br />
+                  <span class="indent">list([ {name: 'Bart'} ])</span>
+                  <br/><span class="indent"> // returns 'Bart'</span>
+                    <br/>
+                  <br />
+                  <span class="indent">list([]) </span>
+                    <br/><span class="indent"> // returns '' 
+                      <br/>
+                      <br/><span class="indent">Note: all the hashes are pre-validated</span>
+                    <br/><span class="indent"> and will only contain A-Z, a-z, '-' and '.'.</span> 
+                    <br/>
+                </p>
+              </div>
+
+              <p class="solution-text hide">
+                <br><span>function list(names){</span>
+                <br><span class="indent">if (names.length > 3) {</span>  
+                <br><span class="indent-2x">let array = []</span>    
+                <br><span class="indent-2x"> for (let i = 0; i < names.length; i++) {</span>   
+                <br><span class="indent-3x">if (i === 0 || i === names.length) {</span>      
+                <br><span class="indent-4x">array.push(`${names[i].name},`);</span>        
+                <br><span class="indent-3x">}else if (i !== names.length -1 && i !== names.length -2) {</span>      
+                <br><span class="indent-4x">array.push(` ${names[i].name},`);</span>        
+                <br><span class="indent-3x"> }else if (i !== names.length -1) {</span>     
+                <br><span class="indent-4x">  array.push(` ${names[i].name} & `); </span>      
+                <br><span class="indent-3x"> } else {</span>     
+                <br><span class="indent-4x"> array.push(`${names[names.length -1].name}`)</span>       
+                <br><span class="indent-2x"> }</span>     
+                <br><span class="indent"> }</span>   
+                <br><span class="indent">return array.join('');</span>    
+                <br><span> }</span> 
+                <br><span class="indent">  if (names.length === 3) {</span>
+                <br><span class="indent-2x">  return `${names[0].name}, ${names[1].name} & <br><span class=indent-2x>${names[2].name}`</span>  
+                <br><span class="indent">} else if (names.length === 2) {</span>  
+                <br><span class="indent-2x">return `${names[0].name} & ${names[1].name}`  </span>    
+                <br><span class="indent"> } else if (names.length === 1) {</span> 
+                <br><span class="indent-2x">return names[0].name</span>      
+                <br><span class="indent"> } else {</span> 
+                <br><span class="indent-2x">return ""</span>    
+                <br><span class="indent">}</span>  
+                <br><span>}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="popup hide">
+        <div class="close-button-container">
+          <button class="close-button"><p>X</p></button>
+        </div>
+        <p class="popup-text">
+          Please make sure the textbox is not empty and your text only contains
+          letters
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
